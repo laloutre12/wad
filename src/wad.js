@@ -1116,14 +1116,14 @@ Copyright (c) 2014 Chris Wilson
             this.pitch = Math.floor( pitch ) ;
             var note = noteFromPitch( pitch );
             this.noteName = Wad.pitchesArray[note - 12];
-            // Detune doesn't seem to work.
-            // var detune = centsOffFromPitch( pitch, note );
-            // if (detune == 0 ) {
-            //     this.detuneEstimate = 0;
-            // } else {
+//             Detune doesn't seem to work.
+            var detune = centsOffFromPitch( pitch, note );
+            if (detune == 0 ) {
+                this.detuneEstimate = 0;
+            } else {
 
-            //     this.detuneEstimate = detune
-            // }
+                this.detuneEstimate = detune
+            }
         }
         var that = this;
         that.rafID = window.requestAnimationFrame( function(){ that.updatePitch() } );
